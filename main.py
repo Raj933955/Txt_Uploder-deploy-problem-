@@ -23,9 +23,9 @@ import re
 import os
 
 bot = Client("bot",
-             bot_token= "6443500984:AAFnlR6aZGhP1v_GJpAyUQViwdrrq385h98",
-             api_id= 21408627,
-             api_hash= "465cca6fa782695983d49db306e0f8be")
+             bot_token= "6821976502:AAEleXStH1ehZN0qnZJY3qafo57jAq4fg0U",
+             api_id= 27952989,
+             api_hash= "74f04808a359e9a516e955ec243613ca")
 
 
 @bot.on_message(filters.command(["start"]) & filters.user(ADMINS))
@@ -39,13 +39,13 @@ async def restart_handler(_, m):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-@bot.on_message(filters.command(["TXT"]) & filters.user(ADMINS))
+@bot.on_message(filters.command(["Naruto"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text(f"**Hey [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nSend txt file**")
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
-        #await bot.send_document(-1001952769436, x)
+        #await bot.send_document(-1002047255106, x)
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
         credit = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -156,7 +156,7 @@ async def account_login(bot: Client, m: Message):
              url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{str(count).zfill(3)}) {name1[:60]}'
+            name = f'{str(count).zfill(3)}) {Mr} {name1[:60]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -197,7 +197,7 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    prog = await m.reply_text(f"**Downloading:-**\n\n** Video Name :-** `{name}\nQuality - {raw_text2}`\n**link:**`{url}`\n\n **bot made by KARAN**")
+                    prog = await m.reply_text(f"**Downloading:-**\n\n** Video Name :-** `{name}\nQuality - {raw_text2}`\n**link:**`{url}`\n\n **bot made by @sccwaleyarr **")
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
